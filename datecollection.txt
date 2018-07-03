@@ -1,0 +1,29 @@
+$sql = "SELECT date FROM t2 where($userid=id);";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$x=$row["date"];
+echo "date as per is::";
+echo $x;
+$newdate = date("Y/m/d", strtotime($x));
+echo "<br>new x:";
+echo $newdate;
+echo "<br>y:";
+$y = date('Y/m/d');
+echo $y; 
+
+
+$x1 = strtotime($x);
+$y1 = strtotime($y);
+echo"<br>x1:".$x1."<br>";
+$secs = $y1 - $x1;// == <seconds between the two times>
+$days = $secs / 86400;
+
+
+
+echo "<br>days:";
+echo $days;
+if($days<7){
+	echo "Free consultation";
+else
+	echo"Fess to be collected";
+}
